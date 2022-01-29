@@ -1,5 +1,9 @@
-import { mul, sum } from './js/math'
+const foo = 'hello babel'
 
-console.log(mul(20, 30))
-console.log(sum(20, 30))
-console.log(abc)
+const bar = (info) => {
+  console.log(info)
+}
+
+const p = new Promise((resolve, reject) => {})
+
+bar(foo)

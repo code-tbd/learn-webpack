@@ -6,13 +6,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',
+  entry: './src/react_index.jsx',
   // 开发阶段
   // devtool: 'cheap-module-source-map',
   // 测试阶段
   // devtool: 'cheap-module-source-map',
   // 生产阶段
   // devtool: false,
+  devtool: 'source-map',
   output: {
     filename: 'js/bundle.js',
     path: path.resolve(__dirname, './build')
@@ -20,17 +21,16 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-env']
-            }
-          }
-        ]
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        use: ['babel-loader']
       }
     ]
   },
-  plugins: [new CleanWebpackPlugin(), new HtmlWebpackPlugin()]
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: 'index.html'
+    })
+  ]
 }
