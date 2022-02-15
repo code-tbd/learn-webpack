@@ -1,0 +1,16 @@
+html {
+  background-color: blue;
+}
+
+/* 未使用的类 */
+.title {
+  color: red;
+}
+
+h2 {
+  color: black;
+}
+
+
+/* css文件需要保留 */
+/* 在package.json的sideEffects添加['**.css'] */
